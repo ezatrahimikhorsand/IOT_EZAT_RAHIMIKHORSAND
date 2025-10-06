@@ -1,3 +1,8 @@
+'''
+
+
+'''
+
 import paho.mqtt.client as mqtt
 import RPi.GPIO as GPIO 
 from picamera2 import Picamera2
@@ -135,4 +140,5 @@ if __name__ == "__main__":
     my_camera.stop_recording()
     
     # خاموش کردن دوربین
+
     my_camera.turn_off()
