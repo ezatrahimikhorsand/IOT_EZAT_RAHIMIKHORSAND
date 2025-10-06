@@ -1,3 +1,8 @@
+'''
+
+
+
+'''
 #--------TASK  2, 3-----------------
 
 class Device:
@@ -193,4 +198,5 @@ if __name__ == "__main__":
     panel.turn_on_in_group("living_room")
     panel.get_status_in_group("living_room")
     panel.get_status_in_device_type("lamp")
+
     panel.turn_off_all()
