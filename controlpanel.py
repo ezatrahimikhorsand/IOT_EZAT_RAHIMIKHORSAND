@@ -1,8 +1,3 @@
-'''
-
-
-
-'''
 #--------TASK  2, 3-----------------
 
 class Device:
@@ -168,13 +163,14 @@ class ControlPanel:
         return new_sensor
    
     def create_multiple_sensor(self, location, group, sensor_type, sensor_number):
+        
         '''
         ایجاد چندین سنسور از یک نوع
         '''
         created_sensors = []
         for i in range(1, sensor_number + 1):
             sensor_name = f'{sensor_type}_{i}'
-            new_sensor = self.create_sensor(location, group, sensor_type, sensor_name)
+            new_sensor = self.create_sensor(location, group, sensor_type, sensor_number)
             created_sensors.append(new_sensor)
         
         print(f'{sensor_number} سنسور از نوع {sensor_type} ایجاد شد!')
@@ -198,5 +194,4 @@ if __name__ == "__main__":
     panel.turn_on_in_group("living_room")
     panel.get_status_in_group("living_room")
     panel.get_status_in_device_type("lamp")
-
-    panel.turn_off_all()
+    
