@@ -1,12 +1,6 @@
-'''
-
-
-'''
-
 import paho.mqtt.client as mqtt
 import RPi.GPIO as GPIO 
 from picamera2 import Picamera2
-import time
 
 class Device:
 
@@ -103,13 +97,12 @@ class Device:
             print(f"خطا در شروع ضبط ویدیو: {e}")
             return False
 
-    # تابع  برای دوربین - توقف ضبط ویدیو
     def stop_recording(self):
-        """یک تابع برای توقف ضبط ویدیو"""
+        """تابع برای توقف ضبط دوربین"""
         if self.device_type != 'camera':
             print("این دستگاه دوربین نیست!")
             return False
-
+        
         if not self.is_recording:
             print("دوربین در حال ضبط نیست!")
             return False
@@ -118,27 +111,4 @@ class Device:
             self.cam.stop_recording()
             self.is_recording = False
             print("ضبط ویدیو متوقف شد")
-            return True
-        except Exception as e:
-            print(f"خطا در توقف ضبط ویدیو: {e}")
-            return False
-
-# تست 
-if __name__ == "__main__":
-    # ایجاد یک دوربین 
-    my_camera = Device('home', 'room', 'camera', 'my_camera', 18)
-    
-    # روشن کردن دوربین
-    my_camera.turn_on()
-    
-    # گرفتن یک عکس 
-    my_camera.take_picture("test_photo.jpg")
-    
-    # ضبط ویدیو
-    my_camera.start_recording("test_video.mp4")
-    time.sleep(5)  # 5 ثانیه ضبط میکنه
-    my_camera.stop_recording()
-    
-    # خاموش کردن دوربین
-
-    my_camera.turn_off()
+   
